@@ -7,17 +7,6 @@ output: html_document
 
 ```r
 data <- read.csv("activity.csv", header=TRUE)
-```
-
-```
-## Warning: cannot open file 'activity.csv': No such file or directory
-```
-
-```
-## Error: cannot open the connection
-```
-
-```r
 data$date <- as.Date(data$date)
 ```
 
