@@ -7,6 +7,17 @@ output: html_document
 
 ```r
 data <- read.csv("activity.csv", header=TRUE)
+```
+
+```
+## Warning: cannot open file 'activity.csv': No such file or directory
+```
+
+```
+## Error: cannot open the connection
+```
+
+```r
 data$date <- as.Date(data$date)
 ```
 
@@ -125,27 +136,6 @@ newdf <- transform(newdf, weekday=factor(weekday))
 #Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
 
 library(dplyr)
-```
-
-```
-## 
-## Attaching package: 'dplyr'
-## 
-## The following objects are masked from 'package:plyr':
-## 
-##     arrange, count, desc, failwith, id, mutate, rename, summarise,
-##     summarize
-## 
-## The following object is masked from 'package:stats':
-## 
-##     filter
-## 
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
-
-```r
 by_wi <- group_by(newdf, interval, weekday)
 summ <- summarize(by_wi, mean(steps))
 colnames(summ)[3] <- "mean"
